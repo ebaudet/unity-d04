@@ -10,8 +10,8 @@ public class profilUser : MonoBehaviour
 	public int			lifeLosed = 0;
 	public List<Level>	levels = null;
 
-	public Text			countLifeLosed;
-	public Text			countRings;
+	public Text			countLifeLosed = null;
+	public Text			countRings = null;
 	
 	void Awake () {
 		if (PlayerPrefs.GetInt("rings") != 0)
@@ -99,11 +99,13 @@ public class profilUser : MonoBehaviour
 	}
 
 	public void SetCountLifeLosed() {
-		countLifeLosed.text = lifeLosed.ToString();
+		if (countLifeLosed != null)
+			countLifeLosed.text = lifeLosed.ToString();
 	}
 
 	public void SetCountRings() {
-		countRings.text = rings.ToString();
+		if (countRings != null)
+			countRings.text = rings.ToString();
 	}
 
 	/***************** PRIVATE *****************/
